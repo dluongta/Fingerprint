@@ -1,4 +1,5 @@
 package com.example.fingerprint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -56,8 +57,9 @@ public class MainActivity extends AppCompatActivity {
                             @NonNull BiometricPrompt.AuthenticationResult result) {
                         super.onAuthenticationSucceeded(result);
                         toast("Đăng nhập thành công");
-                        // TODO: chuyển sang màn hình Home
-                    }
+
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                        startActivity(intent);                    }
 
                     @Override
                     public void onAuthenticationFailed() {
